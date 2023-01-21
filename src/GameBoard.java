@@ -1,20 +1,19 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class GameBoard extends JComponent implements Runnable{
+    JFrame frame;
+    JPanel pa;
     public GameBoard() {
-
-    }
-    public static void main(String[] args) {
-        //System.out.println("Testing main menu...");
-        SwingUtilities.invokeLater(new GameBoard());
-        JPanel pa = new JPanel();
+        frame = new JFrame();
+        pa = new JPanel();
 
         // set the layout
         pa.setLayout(new BorderLayout());
 
         // add a new JButton with name "wel" and it is
         // lie top of the container
-        pa.add(new JButton("WelCome"), BorderLayout.NORTH);
+        pa.add(new JButton("Welcome"), BorderLayout.NORTH);
 
         // add a new JButton with name "come" and it is
         // lie button of the container
@@ -33,20 +32,29 @@ public class GameBoard extends JComponent implements Runnable{
         pa.add(new JButton("GeeksforGeeks"), BorderLayout.CENTER);
 
         // add the pa object which refer to the Jpanel
-        add(pa);
+        frame.add(pa);
 
         // Function to close the operation of JFrame.
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Function to set size of JFrame.
-        setSize(300, 300);
+        frame.setSize(780, 780);
 
         // Function to set visible status of JFrame.
-        setVisible(true);
+        frame.setVisible(true);
+
+    }
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new GameBoard());
+    }
+
+    @Override
+    public void run() {
+
     }
 }
 
-class MainFrame {
+/* class MainFrame {
 
     // Driver code
     public static void main(String[] args)
@@ -60,5 +68,8 @@ class MainFrame {
 
     public void run() {
 
+
+
+
     }
-}
+}*/
