@@ -40,19 +40,19 @@ abstract class GameBoard implements ActionListener {
     public static void boardFrame (){
         JFrame frame3 = new JFrame("Purdue Life");
 
-        JButton btn1 = new JButton("Button 1");
+        JButton btn1 = new JButton("Finals");
         btn1.setBackground(Color.LIGHT_GRAY);
-        JButton btn2 = new JButton("Button 2");
+        JButton btn2 = new JButton("Move to Meredith Hall");
         btn2.setBackground(Color.LIGHT_GRAY);
-        JButton btn3 = new JButton("Button 3");
+        JButton btn3 = new JButton("You spot a cutie in CS251");
         btn3.setBackground(Color.LIGHT_GRAY);
-        JButton btn4 = new JButton("Button 4");
+        JButton btn4 = new JButton("Sign a lease for an apartment");
         btn4.setBackground(Color.LIGHT_GRAY);
-        JButton btn5 = new JButton("Button 5");
+        JButton btn5 = new JButton("Food Poisoning from Wiley");
         btn5.setBackground(Color.LIGHT_GRAY);
-        JButton btn6 = new JButton("Button 5");
+        JButton btn6 = new JButton("Finals");
         btn6.setBackground(Color.LIGHT_GRAY);
-        JButton btn7 = new JButton("Button 5");
+        JButton btn7 = new JButton("Starbucks Addiction");
         btn7.setBackground(Color.LIGHT_GRAY);
         JButton btn8 = new JButton("");
         btn8.setBorderPainted(false);
@@ -66,9 +66,9 @@ abstract class GameBoard implements ActionListener {
         JButton btn11 = new JButton("");
         btn11.setBorderPainted(false);
         btn11.setBackground(Color.white);
-        JButton btn12 = new JButton("Button 5");
+        JButton btn12 = new JButton("Internship");
         btn12.setBackground(Color.LIGHT_GRAY);
-        JButton btn13 = new JButton("Button 5");
+        JButton btn13 = new JButton("Part-Time Job");
         btn13.setBackground(Color.LIGHT_GRAY);
         JButton btn14 = new JButton("");
         btn14.setBorderPainted(false);
@@ -82,9 +82,9 @@ abstract class GameBoard implements ActionListener {
         JButton btn17 = new JButton("");
         btn17.setBorderPainted(false);
         btn17.setBackground(Color.white);
-        JButton btn18 = new JButton("Button 5");
+        JButton btn18 = new JButton("Chicago Trip");
         btn18.setBackground(Color.LIGHT_GRAY);
-        JButton btn19 = new JButton("Button 5");
+        JButton btn19 = new JButton("Roommate Issues");
         btn19.setBackground(Color.LIGHT_GRAY);
         JButton btn20 = new JButton("");
         btn20.setBorderPainted(false);
@@ -98,9 +98,9 @@ abstract class GameBoard implements ActionListener {
         JButton btn23 = new JButton("");
         btn23.setBorderPainted(false);
         btn23.setBackground(Color.white);
-        JButton btn24 = new JButton("Button 5");
+        JButton btn24 = new JButton("Party Arrest");
         btn24.setBackground(Color.LIGHT_GRAY);
-        JButton btn25 = new JButton("Button 5");
+        JButton btn25 = new JButton("Boiler Gold Rush");
         btn25.setBackground(Color.LIGHT_GRAY);
         JButton btn26 = new JButton("");
         btn26.setBorderPainted(false);
@@ -114,19 +114,19 @@ abstract class GameBoard implements ActionListener {
         JButton btn29 = new JButton("");
         btn29.setBorderPainted(false);
         btn29.setBackground(Color.white);
-        JButton btn30 = new JButton("Button 5");
+        JButton btn30 = new JButton("Au Bon Pain lady quits");
         btn30.setBackground(Color.LIGHT_GRAY);
-        JButton btn31 = new JButton("Button 5");
+        JButton btn31 = new JButton("Start");
         btn31.setBackground(Color.LIGHT_GRAY);
-        JButton btn32 = new JButton("Button 5");
+        JButton btn32 = new JButton("Finals");
         btn32.setBackground(Color.LIGHT_GRAY);
-        JButton btn33 = new JButton("Button 5");
+        JButton btn33 = new JButton("The Burrow gives you diarrhea");
         btn33.setBackground(Color.LIGHT_GRAY);
-        JButton btn34 = new JButton("Button 5");
+        JButton btn34 = new JButton("Florida Spring Break");
         btn34.setBackground(Color.LIGHT_GRAY);
-        JButton btn35 = new JButton("Button 5");
+        JButton btn35 = new JButton("Sledding on Slader Hill");
         btn35.setBackground(Color.LIGHT_GRAY);
-        JButton btn36 = new JButton("Button 5");
+        JButton btn36 = new JButton("Finals");
         btn36.setBackground(Color.LIGHT_GRAY);
 
         JPanel panel = new JPanel(new GridLayout(6, 6, 0, 0));
@@ -168,7 +168,7 @@ abstract class GameBoard implements ActionListener {
         panel.add(btn36);
 
         frame3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame3.setSize(800, 800);
+        frame3.setSize(1500, 900);
         frame3.getContentPane().add(panel);
         frame3.setVisible(true);
     }
