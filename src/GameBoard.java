@@ -171,5 +171,18 @@ abstract class GameBoard implements ActionListener {
         frame3.setSize(1500, 900);
         frame3.getContentPane().add(panel);
         frame3.setVisible(true);
+        JButton[] map = {btn31, btn25, btn19, btn13, btn7,
+                btn1, btn2, btn3, btn4, btn5, btn6, btn12,
+                btn18, btn24, btn30, btn36, btn35, btn34, btn33, btn32};
+        boolean gameGoing = true;
+        while(gameGoing){
+            //Player1
+            move();
+            //Player2
+            move();
+        }
+    }
+    public static void move(){
+
     }
 }
