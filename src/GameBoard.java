@@ -175,26 +175,18 @@ abstract class GameBoard implements ActionListener {
         frame3.getContentPane().add(panel);
         frame3.setVisible(true);
 
-        HashMap<JButton, Integer> map = new HashMap<>();
-        map.put(btn31, 1);
-        map.put(btn25, 2);
-        map.put(btn19, 3);
-        map.put(btn13, 4);
-        map.put(btn7, 5);
-        map.put(btn1, 6);
-        map.put(btn2, 7);
-        map.put(btn3, 8);
-        map.put(btn4, 9);
-        map.put(btn5, 10);
-        map.put(btn6, 11);
-        map.put(btn12, 12);
-        map.put(btn18, 13);
-        map.put(btn24, 14);
-        map.put(btn30, 15);
-        map.put(btn36, 16);
-        map.put(btn35, 17);
-        map.put(btn34, 18);
-        map.put(btn33, 19);
-        map.put(btn32, 20);
+        JButton[] array = {btn31, btn25, btn19,btn13, btn7,
+                btn1, btn2, btn3, btn4, btn5, btn6, btn12,
+                btn18, btn24, btn30, btn36, btn35, btn34, btn33, btn32};
+        boolean gameRun = true;
+        while(gameRun){
+            //player1
+            move();
+            //player2
+            move();
+        }
+    }
+    public static void move(){
+
     }
 }
