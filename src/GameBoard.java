@@ -11,9 +11,13 @@ public class GameBoard {
 
         // Creating Object of JFrame class
         // with new name frame
-        JFrame frame = new JFrame("GridLayout Demo");
+        JFrame frame3 = new JFrame("GridLayout Demo");
+        JFrame frame2 = new JFrame("Menu");
 
-        // Initialization of object
+        // Frame 2:
+
+
+        // Frame 3: Initialization of object
         JButton btn1 = new JButton("Button 1");
         JButton btn2 = new JButton("Button 2");
         JButton btn3 = new JButton("Button 3");
@@ -144,16 +148,16 @@ public class GameBoard {
 
 
         // Function to close the operation of JFrame.
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame3.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Function to set size of JFrame.
 
-        frame.setSize(800, 800);
+        frame3.setSize(800, 800);
 
         // Function to get the content of JFrame.
-        frame.getContentPane().add(panel);
+        frame3.getContentPane().add(panel);
 
         // Function to set visible status of JFrame.
-        frame.setVisible(true);
+        frame3.setVisible(true);
     }
 }
