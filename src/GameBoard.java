@@ -176,22 +176,14 @@ abstract class GameBoard implements ActionListener {
         JColorChooser player1 = new JColorChooser();
         JColorChooser player2 = new JColorChooser();
 
-        //Instructions Frame
-        JFrame frameInstruct = new JFrame("Instructions");
-
-        //Instruction Frame
+        //Instruction Panel
         JButton button = new JButton("Instructions: Finish College before you run out of money and or happiness. Click here to start");
         button.setBackground(Color.white);
         JPanel panelInstruct = new JPanel(new GridLayout(1, 1, 0, 0));
         panelInstruct.add(button);
-        frameInstruct.setSize(300, 400);
-        frameInstruct.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frameInstruct.setSize(800, 800);
-        frameInstruct.getContentPane().add(panelInstruct);
-        frameInstruct.setVisible(true);
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                frameInstruct.setVisible(false);
+                frame2.setVisible(false);
                 boardFrame();
             }
         });
@@ -200,7 +192,7 @@ abstract class GameBoard implements ActionListener {
         jTabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
         jTabbedPane.addTab("Player 2", icon, player2, "Determines color for player 2");
         jTabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
-        jTabbedPane.addTab("Instructions", icon2, frameInstruct, "Instructions");
+        jTabbedPane.addTab("Instructions", icon2, panelInstruct, "Instructions");
         jTabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
 

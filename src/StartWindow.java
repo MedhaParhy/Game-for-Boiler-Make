@@ -24,7 +24,7 @@ public class StartWindow extends JComponent implements Runnable {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new GameBoard());
+        //SwingUtilities.invokeLater(new GameBoard());
         /*frame = new JFrame("Purdue Life");
         Container contentPane = frame.getContentPane();
         contentPane.add(new JLabel(new ImageIcon ("IMG_1843.jpeg")));
