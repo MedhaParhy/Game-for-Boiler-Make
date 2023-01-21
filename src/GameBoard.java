@@ -11,10 +11,8 @@ import java.net.URL;
 abstract class GameBoard implements ActionListener {
 
     // Main Method
-    public static void main(String[] args)
-    {
-
-
+    public static void main(String[] args) throws MalformedURLException {
+        frame2();
     }
     public static void boardFrame (){
         JFrame frame3 = new JFrame("Purdue Life");
@@ -165,7 +163,19 @@ abstract class GameBoard implements ActionListener {
 
     }
 
-    public static void instructionFrame() {
+    public static void frame2() throws MalformedURLException, MalformedURLException {
+        JFrame frame2 = new JFrame("Main Menu");
+        JTabbedPane jTabbedPane = new JTabbedPane();
+
+        URL url = new URL("https://louisville.edu/enrollmentmanagement/images/person-icon/image");
+        URL url2 = new URL("https://people.sc.fsu.edu/~jburkardt/datasets/alphabet_lowercase/i.png");
+
+        ImageIcon icon = new ImageIcon(url);
+        ImageIcon icon2 = new ImageIcon(url2);
+
+        JColorChooser player1 = new JColorChooser();
+        JColorChooser player2 = new JColorChooser();
+
         //Instructions Frame
         JFrame frameInstruct = new JFrame("Instructions");
 
@@ -185,26 +195,12 @@ abstract class GameBoard implements ActionListener {
                 boardFrame();
             }
         });
-    }
-    public static void frame2() throws MalformedURLException, MalformedURLException {
-        JFrame frame2 = new JFrame("Main Menu");
-        JTabbedPane jTabbedPane = new JTabbedPane();
-
-        URL url = new URL("https://louisville.edu/enrollmentmanagement/images/person-icon/image");
-        URL url2 = new URL("https://people.sc.fsu.edu/~jburkardt/datasets/alphabet_lowercase/i.png");
-
-        ImageIcon icon = new ImageIcon(url);
-        ImageIcon icon2 = new ImageIcon(url2);
-
-        JColorChooser player1 = new JColorChooser();
-        JColorChooser player2 = new JColorChooser();
-
 
         jTabbedPane.addTab("Player 1", icon, player1, "Determines color for player 1");
         jTabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
         jTabbedPane.addTab("Player 2", icon, player2, "Determines color for player 2");
         jTabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
-        jTabbedPane.addTab("Instructions", icon2, , "Instructions");
+        jTabbedPane.addTab("Instructions", icon2, frameInstruct, "Instructions");
         jTabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
 
