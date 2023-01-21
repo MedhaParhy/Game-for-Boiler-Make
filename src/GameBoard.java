@@ -3,13 +3,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 
 // create a class griddemo
 abstract class GameBoard implements ActionListener {
 
     // Main Method
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         // Creating Object of JFrame class
         // with new name frame
@@ -37,10 +37,7 @@ abstract class GameBoard implements ActionListener {
 
 
     }
-
-    public static void boardFrame() {
-
-
+    public static void boardFrame (){
         JFrame frame3 = new JFrame("Purdue Life");
 
         JButton btn1 = new JButton("Finals");
@@ -174,19 +171,5 @@ abstract class GameBoard implements ActionListener {
         frame3.setSize(1500, 900);
         frame3.getContentPane().add(panel);
         frame3.setVisible(true);
-
-        JButton[] array = {btn31, btn25, btn19,btn13, btn7,
-                btn1, btn2, btn3, btn4, btn5, btn6, btn12,
-                btn18, btn24, btn30, btn36, btn35, btn34, btn33, btn32};
-        boolean gameRun = true;
-        while(gameRun){
-            //player1
-            move();
-            //player2
-            move();
-        }
-    }
-    public static void move(){
-
     }
 }
