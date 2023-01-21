@@ -1,9 +1,11 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 // create a class griddemo
-public class GameBoard {
+abstract class GameBoard implements ActionListener {
 
     // Main Method
     public static void main(String[] args)
@@ -11,12 +13,30 @@ public class GameBoard {
 
         // Creating Object of JFrame class
         // with new name frame
-        JFrame frame3 = new JFrame("GridLayout Demo");
-        JFrame frame2 = new JFrame("Menu");
 
+        JFrame frame2 = new JFrame("Menu");
+        JFrame frameInstruct = new JFrame("Instructions");
         // Frame 2:
 
+        //Instruction Frame
+        JButton button = new JButton("Instructions: Finish College before you run out of money and or happiness. Click here to start");
+        JPanel panelInstruct = new JPanel(new GridLayout(1, 1, 0, 0));
+        panelInstruct.add(button);
+        frameInstruct.setSize(300, 400);
+        frameInstruct.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frameInstruct.setSize(800, 800);
+        frameInstruct.getContentPane().add(panelInstruct);
+        frameInstruct.setVisible(true);
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                boardFrame();
+            }
+        });
 
+
+    }
+    public static void boardFrame (){
+        JFrame frame3 = new JFrame("GridLayout Demo");
         // Frame 3: Initialization of object
         JButton btn1 = new JButton("Button 1");
         JButton btn2 = new JButton("Button 2");
