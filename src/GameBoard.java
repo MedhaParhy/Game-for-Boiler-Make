@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 // create a class griddemo
 public class GameBoard {
@@ -141,10 +142,12 @@ public class GameBoard {
         panel.add(btn36);
 
 
+
         // Function to close the operation of JFrame.
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Function to set size of JFrame.
+
         frame.setSize(800, 800);
 
         // Function to get the content of JFrame.
