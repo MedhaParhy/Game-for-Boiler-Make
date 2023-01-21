@@ -3,13 +3,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 
 // create a class griddemo
 abstract class GameBoard implements ActionListener {
 
     // Main Method
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
 
         // Creating Object of JFrame class
         // with new name frame
@@ -37,7 +37,10 @@ abstract class GameBoard implements ActionListener {
 
 
     }
-    public static void boardFrame (){
+
+    public static void boardFrame() {
+
+
         JFrame frame3 = new JFrame("Purdue Life");
 
         JButton btn1 = new JButton("Finals");
@@ -171,5 +174,27 @@ abstract class GameBoard implements ActionListener {
         frame3.setSize(1500, 900);
         frame3.getContentPane().add(panel);
         frame3.setVisible(true);
+
+        HashMap<JButton, Integer> map = new HashMap<>();
+        map.put(btn31, 1);
+        map.put(btn25, 2);
+        map.put(btn19, 3);
+        map.put(btn13, 4);
+        map.put(btn7, 5);
+        map.put(btn1, 6);
+        map.put(btn2, 7);
+        map.put(btn3, 8);
+        map.put(btn4, 9);
+        map.put(btn5, 10);
+        map.put(btn6, 11);
+        map.put(btn12, 12);
+        map.put(btn18, 13);
+        map.put(btn24, 14);
+        map.put(btn30, 15);
+        map.put(btn36, 16);
+        map.put(btn35, 17);
+        map.put(btn34, 18);
+        map.put(btn33, 19);
+        map.put(btn32, 20);
     }
 }
