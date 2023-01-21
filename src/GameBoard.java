@@ -3,6 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 // create a class griddemo
 abstract class GameBoard implements ActionListener {
@@ -10,30 +13,6 @@ abstract class GameBoard implements ActionListener {
     // Main Method
     public static void main(String[] args)
     {
-
-        // Creating Object of JFrame class
-        // with new name frame
-
-        JFrame frame2 = new JFrame("Menu");
-        JFrame frameInstruct = new JFrame("Instructions");
-        // Frame 2:
-
-        //Instruction Frame
-        JButton button = new JButton("Instructions: Finish College before you run out of money and or happiness. Click here to start");
-        button.setBackground(Color.white);
-        JPanel panelInstruct = new JPanel(new GridLayout(1, 1, 0, 0));
-        panelInstruct.add(button);
-        frameInstruct.setSize(300, 400);
-        frameInstruct.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frameInstruct.setSize(800, 800);
-        frameInstruct.getContentPane().add(panelInstruct);
-        frameInstruct.setVisible(true);
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                frameInstruct.setVisible(false);
-                boardFrame();
-            }
-        });
 
 
     }
@@ -185,4 +164,58 @@ abstract class GameBoard implements ActionListener {
     public static void move(){
 
     }
+
+    public static void instructionFrame() {
+        //Instructions Frame
+        JFrame frameInstruct = new JFrame("Instructions");
+
+        //Instruction Frame
+        JButton button = new JButton("Instructions: Finish College before you run out of money and or happiness. Click here to start");
+        button.setBackground(Color.white);
+        JPanel panelInstruct = new JPanel(new GridLayout(1, 1, 0, 0));
+        panelInstruct.add(button);
+        frameInstruct.setSize(300, 400);
+        frameInstruct.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frameInstruct.setSize(800, 800);
+        frameInstruct.getContentPane().add(panelInstruct);
+        frameInstruct.setVisible(true);
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frameInstruct.setVisible(false);
+                boardFrame();
+            }
+        });
+    }
+    public static void frame2() throws MalformedURLException, MalformedURLException {
+        JFrame frame2 = new JFrame("Main Menu");
+        JTabbedPane jTabbedPane = new JTabbedPane();
+
+        URL url = new URL("https://louisville.edu/enrollmentmanagement/images/person-icon/image");
+        URL url2 = new URL("https://people.sc.fsu.edu/~jburkardt/datasets/alphabet_lowercase/i.png");
+
+        ImageIcon icon = new ImageIcon(url);
+        ImageIcon icon2 = new ImageIcon(url2);
+
+        JColorChooser player1 = new JColorChooser();
+        JColorChooser player2 = new JColorChooser();
+
+
+        jTabbedPane.addTab("Player 1", icon, player1, "Determines color for player 1");
+        jTabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
+        jTabbedPane.addTab("Player 2", icon, player2, "Determines color for player 2");
+        jTabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
+        jTabbedPane.addTab("Instructions", icon2, , "Instructions");
+        jTabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
+
+
+        // Function to close the operation of JFrame.
+        frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Function to set size of JFrame.
+        frame2.setSize(800, 800);
+        // Function to get the content of JFrame.
+        frame2.getContentPane().add(jTabbedPane);
+        // Function to set visible status of JFrame.
+        frame2.setVisible(true);
+    }
+
 }
