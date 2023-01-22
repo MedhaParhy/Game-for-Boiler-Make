@@ -6,15 +6,13 @@ import java.awt.geom.Arc2D;
 import java.util.Random;
 import javax.swing.*;
 import java.awt.geom.Arc2D;
-public class spinner extends JComponent implements Runnable {
+public class spinner extends JComponent {
     JButton buttonOne;
     JButton buttonTwo;
     JButton buttonThree;
     JButton buttonFour;
     int rand = 1;
-
-    int finalRandomNum;
-
+    int finalNum = 0;
     public static void main(String[] args) {
         spinner gui = new spinner();
         gui.run();
@@ -87,16 +85,16 @@ public class spinner extends JComponent implements Runnable {
                         if(x == rand){
                             if ((x == 1) || (x == 5) || (x == 9)) {
                                 buttonOne.setBackground(Color.yellow);
-                                finalRandomNum = 1;
+                                finalNum = 1;
                             } else if ((x == 2) || (x == 6) || (x == 10)) {
                                 buttonTwo.setBackground(Color.yellow);
-                                finalRandomNum = 2;
+                                finalNum = 2;
                             } else if ((x == 3) || (x == 7) || (x == 11)) {
                                 buttonThree.setBackground(Color.yellow);
-                                finalRandomNum = 3;
+                                finalNum = 3;
                             } else if ((x == 4) || (x == 8) || (x == 12)) {
                                 buttonFour.setBackground(Color.yellow);
-                                finalRandomNum = 4;
+                                finalNum = 4;
                             }
                         } else if ((x == 1) || (x == 5) || (x == 9)) {
                             buttonOne.setBackground(Color.yellow);
