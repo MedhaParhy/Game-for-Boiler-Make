@@ -96,7 +96,7 @@ public class StartWindow extends JComponent {
         public void actionPerformed(ActionEvent e) {
             if(e.getSource() == startButton) {
                 frame.setVisible(false);
-                //Add frame
+                GameBoard.frame2Method();
             } else if (e.getSource() == aboutButton) {
                 JFrame about = new JFrame ("About");
                 about.setSize(500, 400);
