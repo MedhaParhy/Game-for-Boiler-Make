@@ -7,14 +7,15 @@ import java.awt.event.KeyEvent;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-// create a class griddemo
 abstract class GameBoard implements ActionListener {
 
     // Main Method
     public static void main(String[] args) throws MalformedURLException {
         frame2();
+
+
     }
-    public static void boardFrame (){
+    public static void boardFrame (Player p, Player q){
         JFrame frame3 = new JFrame("Purdue Life");
 
         JButton btn1 = new JButton("Finals");
@@ -148,22 +149,29 @@ abstract class GameBoard implements ActionListener {
         frame3.setSize(1500, 900);
         frame3.getContentPane().add(panel);
         frame3.setVisible(true);
+
         JButton[] map = {btn31, btn25, btn19, btn13, btn7,
                 btn1, btn2, btn3, btn4, btn5, btn6, btn12,
                 btn18, btn24, btn30, btn36, btn35, btn34, btn33, btn32};
-        boolean gameGoing = true;
+        //boolean gameGoing = true;
+        /*
         while(gameGoing){
             //Player1
             move();
             //Player2
             move();
         }
+         */
+
     }
     public static void move(){
 
     }
 
     public static void frame2() throws MalformedURLException, MalformedURLException {
+        Color color1;
+        Color color2;
+
         JFrame frame2 = new JFrame("Main Menu");
         JTabbedPane jTabbedPane = new JTabbedPane();
 
@@ -181,12 +189,6 @@ abstract class GameBoard implements ActionListener {
         button.setBackground(Color.white);
         JPanel panelInstruct = new JPanel(new GridLayout(1, 1, 0, 0));
         panelInstruct.add(button);
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                frame2.setVisible(false);
-                boardFrame();
-            }
-        });
 
         jTabbedPane.addTab("Player 1", icon, player1, "Determines color for player 1");
         jTabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
@@ -195,6 +197,18 @@ abstract class GameBoard implements ActionListener {
         jTabbedPane.addTab("Instructions", icon2, panelInstruct, "Instructions");
         jTabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
+        //update colors if not null
+        if (player1.getColor() != null) {
+            color1 = player1.getColor();
+        } else {
+            color1 = Color.green;
+        }
+
+        if (player2.getColor() != null) {
+            color2 = player2.getColor();
+        } else {
+            color2 = Color.blue;
+        }
 
         // Function to close the operation of JFrame.
         frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -204,6 +218,22 @@ abstract class GameBoard implements ActionListener {
         frame2.getContentPane().add(jTabbedPane);
         // Function to set visible status of JFrame.
         frame2.setVisible(true);
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                player1.setVisible(false);
+                player2.setVisible(false);
+                panelInstruct.setVisible(false);
+                jTabbedPane.setVisible(false);
+                frame2.setVisible(false);
+
+                //instantiating the Player objects
+                Player player1 = new Player (color1);
+                Player player2 = new Player(color2);
+
+                boardFrame(player1, player2);
+            }
+        });
+
     }
 
 }
