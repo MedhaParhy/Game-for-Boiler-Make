@@ -174,27 +174,28 @@ abstract class GameBoard implements ActionListener {
 
 
         //instantiate the colors for the first position
-        btn31.setBackground( new Color((p.getColor().getRGB() + q.getColor().getRGB())/2));
+        btn31.setBackground(new Color((p.getColor().getRGB() + q.getColor().getRGB()) / 2));
 
-        /*
-        while(gameGoing1 || gameGoing2){
+
+        while (gameGoing1 || gameGoing2) {
             //Player1
             if (gameGoing1) {
-                gameGoing1 = moveSpin(p,q);
+                gameGoing1 = moveSpin(p, q);
             }
 
             //Player2
             if (gameGoing2) {
-                gameGoing2 = moveSpin(q,p);
+                gameGoing2 = moveSpin(q, p);
             }
         }
 
-         */
 
         //determine winner and respond appropriately
 
     }
+
     public static boolean moveSpin(Player player, Player other) throws MalformedURLException {
+
         boolean gameGoing = true; //declares if game has been won
         int currPos = player.getPosition();
         int finalPos = currPos;
@@ -209,7 +210,9 @@ abstract class GameBoard implements ActionListener {
 
         return gameGoing;
     }
-
+    public static int spin(){
+        return 0;
+    }
 
     public static int spin(){
         return 1;
@@ -233,6 +236,7 @@ abstract class GameBoard implements ActionListener {
         }
     }
 
+
     public static void buttonActions(Player player) {
         if (player.getPosition() == 2 || player.getPosition() == 14|| player.getPosition() == 15|| player.getPosition() == 16) {
             player.setHearts(player.getHearts() + 1);
@@ -250,40 +254,59 @@ abstract class GameBoard implements ActionListener {
                     "Do you want to ask the cutie out?", "Choice", JOptionPane.YES_NO_OPTION);
             if (x == JOptionPane.YES_OPTION) {
                 player.setHearts(player.getHearts() + 1);
-                player.setMoney(player.getMoney() - 100);
-            }
-            if (x == JOptionPane.NO_OPTION) {
+            } else if (player.getPosition() == 3 || player.getPosition() == 19) {
                 player.setHearts(player.getHearts() - 1);
-                player.setMoney(player.getMoney() + 100);
-            }
-        } else if (player.getPosition() == 9) {
-            int x = JOptionPane.showConfirmDialog(null,
-                    "Do you want to lease an apartment?", "Choice", JOptionPane.YES_NO_OPTION);
-            if (x == JOptionPane.YES_OPTION) {
+            } else if (player.getPosition() == 4) {
+                player.setMoney(player.getMoney() + 1000);
+            } else if (player.getPosition() == 5) {
+                player.setMoney(player.getMoney() + 300);
+            } else if (player.getPosition() == 7) {
+                player.setMoney(player.getMoney() + 3000);
+                player.setHearts(player.getHearts() - 1);
+            } else if (player.getPosition() == 8) {
+                int x = JOptionPane.showConfirmDialog(null,
+                        "Do you want to ask the cutie out?", "Choice", JOptionPane.YES_NO_OPTION);
+                if (x == JOptionPane.YES_OPTION) {
+                    player.setHearts(player.getHearts() + 1);
+                    player.setMoney(player.getMoney() - 100);
+                }
+                if (x == JOptionPane.NO_OPTION) {
+                    player.setHearts(player.getHearts() - 1);
+                    player.setMoney(player.getMoney() + 100);
+                }
+            } else if (player.getPosition() == 9) {
+                int x = JOptionPane.showConfirmDialog(null,
+                        "Do you want to lease an apartment?", "Choice", JOptionPane.YES_NO_OPTION);
+                if (x == JOptionPane.YES_OPTION) {
+                    player.setHearts(player.getHearts() + 1);
+                    player.setMoney(player.getMoney() - 2000);
+                }
+                if (x == JOptionPane.NO_OPTION) {
+                    player.setHearts(player.getHearts() - 1);
+                    player.setMoney(player.getMoney() + 2000);
+                }
+            } else if (player.getPosition() == 10) {
+                player.setHearts(player.getHearts() - 1);
+            } else if (player.getPosition() == 12) {
                 player.setHearts(player.getHearts() + 1);
-                player.setMoney(player.getMoney() - 2000);
+                player.setMoney(player.getMoney() + 10000);
+            } else if (player.getPosition() == 13) {
+                player.setHearts(player.getHearts() + 1);
+                player.setMoney(player.getMoney() - 200);
+            } else if (player.getPosition() == 18) {
+                player.setHearts(player.getHearts() + 1);
+                player.setMoney(player.getMoney() - 1000);
             }
-            if (x == JOptionPane.NO_OPTION) {
-                player.setHearts(player.getHearts() - 1);
-                player.setMoney(player.getMoney() + 2000);
-            }
-        } else if (player.getPosition() == 10) {
-            player.setHearts(player.getHearts() - 1);
-        } else if (player.getPosition() == 12) {
-            player.setHearts(player.getHearts() + 1);
-            player.setMoney(player.getMoney() + 10000);
-        } else if (player.getPosition() == 13) {
-            player.setHearts(player.getHearts() + 1);
-            player.setMoney(player.getMoney() - 200);
-        } else if (player.getPosition() == 18) {
-            player.setHearts(player.getHearts() + 1);
-            player.setMoney(player.getMoney() - 1000);
+
+
         }
 
+        public static void frame2Method () throws MalformedURLException, MalformedURLException {
+            Color color1;
+            Color color2;
 
-
-
-    }
+            JFrame frame2 = new JFrame("Main Menu");
+            JTabbedPane jTabbedPane = new JTabbedPane();
 
     public static void frame2Method() throws MalformedURLException, MalformedURLException {
         //colors
@@ -332,7 +355,5 @@ abstract class GameBoard implements ActionListener {
                 }
             }
         });
-
     }
-
 }
