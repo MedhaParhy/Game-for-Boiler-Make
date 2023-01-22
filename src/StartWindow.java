@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -49,32 +48,45 @@ public class StartWindow extends JComponent {
         Container c = frame.getContentPane();
         JLabel label = new JLabel();
         label.setSize(780, 500);
-        ImageIcon icon = new ImageIcon("PURDUE.jpg");
+        ImageIcon icon = new ImageIcon("PURDUE (1).jpg");
         Image img = icon.getImage();
         Image imageScale = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaleIcon = new ImageIcon(imageScale);
         label.setLayout(new GridBagLayout());
         label.setIcon(scaleIcon);
         startButton = new JButton("Start");
+        //startButton.setOpaque(true);
+        //startButton.setBorderPainted(false);
+        //startButton.setBackground(new Color(0, 90, 250));
+        //startButton.setForeground(new Color(0, 90, 250));
         startButton.addActionListener(buttons);
         //startButton.setBounds(100, 100, 100, 100);
         aboutButton = new JButton("About Us");
         aboutButton.addActionListener(buttons);
         //aboutButton.setBounds(100, 100, 100, 100);
         JPanel inLabel = new JPanel();
+        inLabel.setLayout(new BorderLayout());
+        inLabel.setMinimumSize(new Dimension(300, 100));
+        inLabel.setMaximumSize(new Dimension(300, 100));
+        inLabel.setPreferredSize(new Dimension(300, 100));
         label.add(inLabel);
-        inLabel.setBackground(new Color (222, 246, 255));
-        inLabel.add(startButton);
-        startButton.setBounds(100, 100, 100, 100);
-        inLabel.add(aboutButton);
-        aboutButton.setBounds(100, 100, 100, 100);
+        //inLabel.setBackground(new Color (222, 246, 255));
+        inLabel.setBackground(new Color(0, 0, 0, 0));
+        inLabel.add(startButton, BorderLayout.WEST);
+        startButton.setMinimumSize(new Dimension(150, 50));
+        startButton.setMaximumSize(new Dimension(150, 50));
+        startButton.setPreferredSize(new Dimension(150, 50));
+        inLabel.add(aboutButton, BorderLayout.EAST);
+        aboutButton.setMinimumSize(new Dimension(150, 50));
+        aboutButton.setMaximumSize(new Dimension(150, 50));
+        aboutButton.setPreferredSize(new Dimension(150, 50));
         /*GridBagConstraints start = new GridBagConstraints();
         start.fill = GridBagConstraints.HORIZONTAL;
         start.gridx = 3;
         start.gridy = 0;
         start.anchor = GridBagConstraints.LINE_START;
-        label.add(startButton, start);
-        label.add(aboutButton, start);*/
+        inLabel.add(startButton, start);
+        inLabel.add(aboutButton, start);*/
         c.add(label);
         frame.setVisible(true);
 
@@ -84,7 +96,7 @@ public class StartWindow extends JComponent {
         public void actionPerformed(ActionEvent e) {
             if(e.getSource() == startButton) {
                 frame.setVisible(false);
-                // Add frame
+                //Add frame
             } else if (e.getSource() == aboutButton) {
                 JFrame about = new JFrame ("About");
                 about.setSize(500, 400);
@@ -109,5 +121,3 @@ public class StartWindow extends JComponent {
 
 
 }
-
-
