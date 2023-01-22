@@ -179,7 +179,7 @@ abstract class GameBoard implements ActionListener {
             if (gameGoing1) {
                 p = moveSpin(p, q);
                 System.out.println(p.getPosition());
-                if(p.getPosition()>=9){
+                if(p.getPosition()>=19){
                     gameGoing1= false;
                 }
             }
@@ -188,7 +188,7 @@ abstract class GameBoard implements ActionListener {
             if (gameGoing2) {
                 q = moveSpin(q, p);
                 System.out.println(q.getPosition());
-                if(q.getPosition()>=9){
+                if(q.getPosition()>=19){
                     gameGoing2= false;
                 }
             }
