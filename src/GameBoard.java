@@ -8,20 +8,22 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 abstract class GameBoard implements ActionListener {
-static JButton[] map = new JButton[36];
-    static JButton btn1,btn2, btn3,btn4,btn5,btn6,
-            btn7,btn8,btn9, btn10,btn11,btn12,
-            btn13,btn14, btn15, btn16, btn17,btn18,
-            btn19,btn20,btn21,btn22,btn23,btn24,btn25,
-            btn26,btn27,btn28,btn29,btn30,btn31,btn32,
+    static JButton[] map = new JButton[36];
+    static JButton btn1, btn2, btn3, btn4, btn5, btn6,
+            btn7, btn8, btn9, btn10, btn11, btn12,
+            btn13, btn14, btn15, btn16, btn17, btn18,
+            btn19, btn20, btn21, btn22, btn23, btn24, btn25,
+            btn26, btn27, btn28, btn29, btn30, btn31, btn32,
             btn33, btn34, btn35, btn36;
+
     // Main Method
     public static void main(String[] args) throws MalformedURLException {
         frame2();
 
 
     }
-    public static void boardFrame (Player p, Player q){
+
+    public static void boardFrame(Player p, Player q) {
         JFrame frame3 = new JFrame("Purdue Life");
 
         btn1 = new JButton("Finals");
@@ -162,6 +164,7 @@ static JButton[] map = new JButton[36];
         boolean gameGoing1 = true;
         boolean gameGoing2 = true;
 
+
         //instantiate the colors for the first position
         btn31.setBackground( new Color((p.getColor().getRGB() + q.getColor().getRGB())/2));
 
@@ -196,6 +199,7 @@ static JButton[] map = new JButton[36];
         return gameGoing;
     }
 
+
     public static void changeColor(int currPos, int finalPos, Player player, Player other) {
         int posPlayer1 = player.getPosition();
         int posPlayer2 = other.getPosition();
@@ -213,6 +217,58 @@ static JButton[] map = new JButton[36];
         } else {
             map[currPos].setBackground(player.getColor());
         }
+
+
+    public static void buttonActions(Player player) {
+        if (player.getPosition() == 2 || player.getPosition() == 14|| player.getPosition() == 15|| player.getPosition() == 16) {
+            player.setHearts(player.getHearts() + 1);
+        } else if (player.getPosition() == 3 || player.getPosition() == 19) {
+            player.setHearts(player.getHearts() - 1);
+        } else if (player.getPosition() == 4) {
+            player.setMoney(player.getMoney() + 1000);
+        } else if (player.getPosition() == 5) {
+            player.setMoney(player.getMoney() + 300);
+        } else if (player.getPosition() == 7) {
+            player.setMoney(player.getMoney() + 3000);
+            player.setHearts(player.getHearts() - 1);
+        } else if (player.getPosition() == 8) {
+            int x = JOptionPane.showConfirmDialog(null,
+                    "Do you want to ask the cutie out?", "Choice", JOptionPane.YES_NO_OPTION);
+            if (x == JOptionPane.YES_OPTION) {
+                player.setHearts(player.getHearts() + 1);
+                player.setMoney(player.getMoney() - 100);
+            }
+            if (x == JOptionPane.NO_OPTION) {
+                player.setHearts(player.getHearts() - 1);
+                player.setMoney(player.getMoney() + 100);
+            }
+        } else if (player.getPosition() == 9) {
+            int x = JOptionPane.showConfirmDialog(null,
+                    "Do you want to lease an apartment?", "Choice", JOptionPane.YES_NO_OPTION);
+            if (x == JOptionPane.YES_OPTION) {
+                player.setHearts(player.getHearts() + 1);
+                player.setMoney(player.getMoney() - 2000);
+            }
+            if (x == JOptionPane.NO_OPTION) {
+                player.setHearts(player.getHearts() - 1);
+                player.setMoney(player.getMoney() + 2000);
+            }
+        } else if (player.getPosition() == 10) {
+            player.setHearts(player.getHearts() - 1);
+        } else if (player.getPosition() == 12) {
+            player.setHearts(player.getHearts() + 1);
+            player.setMoney(player.getMoney() + 10000);
+        } else if (player.getPosition() == 13) {
+            player.setHearts(player.getHearts() + 1);
+            player.setMoney(player.getMoney() - 200);
+        } else if (player.getPosition() == 18) {
+            player.setHearts(player.getHearts() + 1);
+            player.setMoney(player.getMoney() - 1000);
+        }
+
+
+
+
     }
 
     public static void frame2() throws MalformedURLException, MalformedURLException {
@@ -274,7 +330,7 @@ static JButton[] map = new JButton[36];
                 frame2.setVisible(false);
 
                 //instantiating the Player objects
-                Player player1 = new Player (color1);
+                Player player1 = new Player(color1);
                 Player player2 = new Player(color2);
 
                 boardFrame(player1, player2);
