@@ -4,8 +4,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.beans.JavaBean;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import static javax.swing.JColorChooser.createDialog;
+import static javax.swing.JColorChooser.showDialog;
 
 abstract class GameBoard implements ActionListener {
     static JButton[] map = new JButton[36];
@@ -18,12 +22,16 @@ abstract class GameBoard implements ActionListener {
 
     // Main Method
     public static void main(String[] args) throws MalformedURLException {
-        frame2();
+        frame2Method();
 
 
     }
 
-    public static void boardFrame(Player p, Player q) {
+    public static void boardFrame(Player p, Player q) throws MalformedURLException {
+
+        System.out.println(p.getColor());
+        System.out.println(p.getColor());
+
         JFrame frame3 = new JFrame("Purdue Life");
 
         btn1 = new JButton("Finals");
@@ -105,7 +113,7 @@ abstract class GameBoard implements ActionListener {
         btn31 = new JButton("Start");
         btn31.setBackground(Color.LIGHT_GRAY);
         btn32 = new JButton("Finals");
-        btn32.setBackground(Color.LIGHT_GRAY);
+        btn32.setBackground(Color.BLACK);
         btn33 = new JButton("The Burrow gives you diarrhea");
         btn33.setBackground(Color.LIGHT_GRAY);
         btn34 = new JButton("Florida Spring Break");
@@ -168,6 +176,7 @@ abstract class GameBoard implements ActionListener {
         //instantiate the colors for the first position
         btn31.setBackground( new Color((p.getColor().getRGB() + q.getColor().getRGB())/2));
 
+        /*
         while(gameGoing1 || gameGoing2){
             //Player1
             if (gameGoing1) {
@@ -180,10 +189,12 @@ abstract class GameBoard implements ActionListener {
             }
         }
 
+         */
+
         //determine winner and respond appropriately
 
     }
-    public static boolean moveSpin(Player player, Player other){
+    public static boolean moveSpin(Player player, Player other) throws MalformedURLException {
         boolean gameGoing = true; //declares if game has been won
         int currPos = player.getPosition();
         int finalPos = currPos;
@@ -200,7 +211,10 @@ abstract class GameBoard implements ActionListener {
     }
 
 
-    public static void changeColor(int currPos, int finalPos, Player player, Player other) {
+    public static int spin(){
+        return 1;
+    }
+    public static void changeColor(int currPos, int finalPos, Player player, Player other) throws MalformedURLException {
         int posPlayer1 = player.getPosition();
         int posPlayer2 = other.getPosition();
 
@@ -213,11 +227,11 @@ abstract class GameBoard implements ActionListener {
 
         //update final position color
         if (finalPos == other.getPosition()) {
-            map[currPos].setBackground( new Color((player.getColor().getRGB() + other.getColor().getRGB())/2));
+            map[currPos].setBackground(new Color((player.getColor().getRGB() + other.getColor().getRGB()) / 2));
         } else {
             map[currPos].setBackground(player.getColor());
         }
-
+    }
 
     public static void buttonActions(Player player) {
         if (player.getPosition() == 2 || player.getPosition() == 14|| player.getPosition() == 15|| player.getPosition() == 16) {
@@ -271,21 +285,18 @@ abstract class GameBoard implements ActionListener {
 
     }
 
-    public static void frame2() throws MalformedURLException, MalformedURLException {
+    public static void frame2Method() throws MalformedURLException, MalformedURLException {
+        //colors
         Color color1;
         Color color2;
 
-        JFrame frame2 = new JFrame("Main Menu");
-        JTabbedPane jTabbedPane = new JTabbedPane();
-
-        URL url = new URL("https://louisville.edu/enrollmentmanagement/images/person-icon/image");
-        URL url2 = new URL("https://people.sc.fsu.edu/~jburkardt/datasets/alphabet_lowercase/i.png");
-
-        ImageIcon icon = new ImageIcon(url);
-        ImageIcon icon2 = new ImageIcon(url2);
-
+        //JColorChooser panels
         JColorChooser player1 = new JColorChooser();
         JColorChooser player2 = new JColorChooser();
+
+        //show dialogs
+        color1 = showDialog(player1, "Player 1 Color", Color.red);
+        color2 = showDialog(player1, "Player 1 Color", Color.blue);
 
         //Instruction Panel
         JButton button = new JButton("Instructions: Finish College before you run out of money and or happiness. Click here to start");
@@ -293,47 +304,32 @@ abstract class GameBoard implements ActionListener {
         JPanel panelInstruct = new JPanel(new GridLayout(1, 1, 0, 0));
         panelInstruct.add(button);
 
-        jTabbedPane.addTab("Player 1", null, player1, "Determines color for player 1");
-        jTabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
-        jTabbedPane.addTab("Player 2", null, player2, "Determines color for player 2");
-        jTabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
-        jTabbedPane.addTab("Instructions", null, panelInstruct, "Instructions");
-        jTabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
-        //update colors if not null
-        if (player1.getColor() != null) {
-            color1 = player1.getColor();
-        } else {
-            color1 = Color.green;
-        }
-
-        if (player2.getColor() != null) {
-            color2 = player2.getColor();
-        } else {
-            color2 = Color.blue;
-        }
-
+        JFrame frameInstruct = new JFrame();
         // Function to close the operation of JFrame.
-        frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frameInstruct.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Function to set size of JFrame.
-        frame2.setSize(800, 800);
+        frameInstruct.setSize(800, 800);
         // Function to get the content of JFrame.
-        frame2.getContentPane().add(jTabbedPane);
+        frameInstruct.getContentPane().add(panelInstruct);
         // Function to set visible status of JFrame.
-        frame2.setVisible(true);
+        frameInstruct.setVisible(true);
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 player1.setVisible(false);
                 player2.setVisible(false);
                 panelInstruct.setVisible(false);
-                jTabbedPane.setVisible(false);
-                frame2.setVisible(false);
+                frameInstruct.setVisible(false);
 
                 //instantiating the Player objects
                 Player player1 = new Player(color1);
                 Player player2 = new Player(color2);
 
-                boardFrame(player1, player2);
+                try {
+                    boardFrame(player1, player2);
+                } catch (MalformedURLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
