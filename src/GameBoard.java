@@ -17,8 +17,12 @@ abstract class GameBoard implements ActionListener {
             btn33, btn34, btn35, btn36;
     static boolean gameGoing1 = true;
     static boolean gameGoing2 = true;
+
+    static JFrame framePlayer;
+
+
     // Main Method
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args){
         frame2Method();
     }
 
@@ -48,20 +52,22 @@ abstract class GameBoard implements ActionListener {
         tabbedPane.addTab("Player 1 Stats:", icon, player1Stats);
         tabbedPane.addTab("Player 2 Stats:", icon, player2Stats);
 
-        JFrame frame = new JFrame();
+        JFrame framePlayer = new JFrame();
         // Function to close the operation of JFrame.
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        framePlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Function to set size of JFrame.
-        frame.setSize(400, 400);
+        framePlayer.setSize(400, 400);
         // Function to get the content of JFrame.
-        frame.getContentPane().add(tabbedPane);
+        framePlayer.getContentPane().add(tabbedPane);
         // Function to set visible status of JFrame.
-        frame.setVisible(true);
-        frame.setVisible(false);
-
+        framePlayer.setVisible(true);
     }
 
+
+
     public static void boardFrame(Player p, Player q) throws MalformedURLException {
+
+        playerFrame(p, q);
 
         JFrame frame3 = new JFrame("Purdue Life");
 
@@ -226,8 +232,12 @@ abstract class GameBoard implements ActionListener {
                 }
             }
 
-            System.out.println("running");//TEST
+            if (framePlayer != null) {
+                framePlayer.setVisible(false);
+            }
             playerFrame(p, q);
+
+
 
         }
 
@@ -253,7 +263,7 @@ abstract class GameBoard implements ActionListener {
     }
 
     public static int spin() {
-
+        return 1;
     }
 
     public static void changeColor(int currPos, int finalPos, Player player, Player other) throws MalformedURLException {
