@@ -5,15 +5,13 @@ public class Player {
 
     //attributes
     Color color;
-    String name;
     double money; //each player starts out with $20,000 and cannot have less than 0 dollars
     int hearts; //each player starts out with 5 hearts and cannot have less than 0 hearts
     int position; //each player needs to have a position between 1-20 (hash-map values)
 
     //constructor
-    public Player(Color color, String name) {
+    public Player(Color color) {
         this.color = color;
-        this.name = name;
         this.money = 20000;
         this.hearts = 5;
         this.position = 0;
@@ -26,14 +24,6 @@ public class Player {
 
     public void setColor(Color color) {
         this.color = color;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public double getMoney() {
