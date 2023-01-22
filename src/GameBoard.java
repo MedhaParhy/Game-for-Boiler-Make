@@ -8,7 +8,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 abstract class GameBoard implements ActionListener {
-
+static JButton[] map = new JButton[36];
+    static JButton btn1,btn2, btn3,btn4,btn5,btn6,
+            btn7,btn8,btn9, btn10,btn11,btn12,
+            btn13,btn14, btn15, btn16, btn17,btn18,
+            btn19,btn20,btn21,btn22,btn23,btn24,btn25,
+            btn26,btn27,btn28,btn29,btn30,btn31,btn32,
+            btn33, btn34, btn35, btn36;
     // Main Method
     public static void main(String[] args) throws MalformedURLException {
         frame2();
@@ -18,93 +24,93 @@ abstract class GameBoard implements ActionListener {
     public static void boardFrame (Player p, Player q){
         JFrame frame3 = new JFrame("Purdue Life");
 
-        JButton btn1 = new JButton("Finals");
+        btn1 = new JButton("Finals");
         btn1.setBackground(Color.LIGHT_GRAY);
-        JButton btn2 = new JButton("Move to Meredith Hall");
+        btn2 = new JButton("Move to Meredith Hall");
         btn2.setBackground(Color.LIGHT_GRAY);
-        JButton btn3 = new JButton("You spot a cutie in CS251");
+        btn3 = new JButton("You spot a cutie in CS251");
         btn3.setBackground(Color.LIGHT_GRAY);
-        JButton btn4 = new JButton("Sign a lease for an apartment");
+        btn4 = new JButton("Sign a lease for an apartment");
         btn4.setBackground(Color.LIGHT_GRAY);
-        JButton btn5 = new JButton("Food Poisoning from Wiley");
+        btn5 = new JButton("Food Poisoning from Wiley");
         btn5.setBackground(Color.LIGHT_GRAY);
-        JButton btn6 = new JButton("Finals");
+        btn6 = new JButton("Finals");
         btn6.setBackground(Color.LIGHT_GRAY);
-        JButton btn7 = new JButton("Starbucks Addiction");
+        btn7 = new JButton("Starbucks Addiction");
         btn7.setBackground(Color.LIGHT_GRAY);
-        JButton btn8 = new JButton("");
+        btn8 = new JButton("");
         btn8.setBorderPainted(false);
         btn8.setBackground(Color.white);
-        JButton btn9 = new JButton("");
+        btn9 = new JButton("");
         btn9.setBorderPainted(false);
         btn9.setBackground(Color.white);
-        JButton btn10 = new JButton("");
+        btn10 = new JButton("");
         btn10.setBorderPainted(false);
         btn10.setBackground(Color.white);
-        JButton btn11 = new JButton("");
+        btn11 = new JButton("");
         btn11.setBorderPainted(false);
         btn11.setBackground(Color.white);
-        JButton btn12 = new JButton("Internship");
+        btn12 = new JButton("Internship");
         btn12.setBackground(Color.LIGHT_GRAY);
-        JButton btn13 = new JButton("Part-Time Job");
+        btn13 = new JButton("Part-Time Job");
         btn13.setBackground(Color.LIGHT_GRAY);
-        JButton btn14 = new JButton("");
+        btn14 = new JButton("");
         btn14.setBorderPainted(false);
         btn14.setBackground(Color.white);
-        JButton btn15 = new JButton("");
+        btn15 = new JButton("");
         btn15.setBorderPainted(false);
         btn15.setBackground(Color.white);
-        JButton btn16 = new JButton("");
+        btn16 = new JButton("");
         btn16.setBorderPainted(false);
         btn16.setBackground(Color.white);
-        JButton btn17 = new JButton("");
+        btn17 = new JButton("");
         btn17.setBorderPainted(false);
         btn17.setBackground(Color.white);
-        JButton btn18 = new JButton("Chicago Trip");
+        btn18 = new JButton("Chicago Trip");
         btn18.setBackground(Color.LIGHT_GRAY);
-        JButton btn19 = new JButton("Roommate Issues");
+        btn19 = new JButton("Roommate Issues");
         btn19.setBackground(Color.LIGHT_GRAY);
-        JButton btn20 = new JButton("");
+        btn20 = new JButton("");
         btn20.setBorderPainted(false);
         btn20.setBackground(Color.white);
-        JButton btn21 = new JButton("");
+        btn21 = new JButton("");
         btn21.setBorderPainted(false);
         btn21.setBackground(Color.white);
-        JButton btn22 = new JButton("");
+        btn22 = new JButton("");
         btn22.setBorderPainted(false);
         btn22.setBackground(Color.white);
-        JButton btn23 = new JButton("");
+        btn23 = new JButton("");
         btn23.setBorderPainted(false);
         btn23.setBackground(Color.white);
-        JButton btn24 = new JButton("Party Arrest");
+        btn24 = new JButton("Party Arrest");
         btn24.setBackground(Color.LIGHT_GRAY);
-        JButton btn25 = new JButton("Boiler Gold Rush");
+        btn25 = new JButton("Boiler Gold Rush");
         btn25.setBackground(Color.LIGHT_GRAY);
-        JButton btn26 = new JButton("");
+        btn26 = new JButton("");
         btn26.setBorderPainted(false);
         btn26.setBackground(Color.white);
-        JButton btn27 = new JButton("");
+        btn27 = new JButton("");
         btn27.setBorderPainted(false);
         btn27.setBackground(Color.white);
-        JButton btn28 = new JButton("");
+        btn28 = new JButton("");
         btn28.setBorderPainted(false);
         btn28.setBackground(Color.white);
-        JButton btn29 = new JButton("");
+        btn29 = new JButton("");
         btn29.setBorderPainted(false);
         btn29.setBackground(Color.white);
-        JButton btn30 = new JButton("Au Bon Pain lady quits");
+        btn30 = new JButton("Au Bon Pain lady quits");
         btn30.setBackground(Color.LIGHT_GRAY);
-        JButton btn31 = new JButton("Start");
+        btn31 = new JButton("Start");
         btn31.setBackground(Color.LIGHT_GRAY);
-        JButton btn32 = new JButton("Finals");
+        btn32 = new JButton("Finals");
         btn32.setBackground(Color.LIGHT_GRAY);
-        JButton btn33 = new JButton("The Burrow gives you diarrhea");
+        btn33 = new JButton("The Burrow gives you diarrhea");
         btn33.setBackground(Color.LIGHT_GRAY);
-        JButton btn34 = new JButton("Florida Spring Break");
+        btn34 = new JButton("Florida Spring Break");
         btn34.setBackground(Color.LIGHT_GRAY);
-        JButton btn35 = new JButton("Sledding on Slader Hill");
+        btn35 = new JButton("Sledding on Slader Hill");
         btn35.setBackground(Color.LIGHT_GRAY);
-        JButton btn36 = new JButton("Finals");
+        btn36 = new JButton("Finals");
         btn36.setBackground(Color.LIGHT_GRAY);
 
         JPanel panel = new JPanel(new GridLayout(6, 6, 0, 0));
@@ -150,21 +156,21 @@ abstract class GameBoard implements ActionListener {
         frame3.getContentPane().add(panel);
         frame3.setVisible(true);
 
-        JButton[] map = {btn31, btn25, btn19, btn13, btn7,
+        map = new JButton[]{btn31, btn25, btn19, btn13, btn7,
                 btn1, btn2, btn3, btn4, btn5, btn6, btn12,
                 btn18, btn24, btn30, btn36, btn35, btn34, btn33, btn32};
-        //boolean gameGoing = true;
-        /*
+        boolean gameGoing = true;
+
         while(gameGoing){
             //Player1
-            move();
+            moveSpin(p,q);
             //Player2
-            move();
+            moveSpin(q,p);
         }
-         */
+
 
     }
-    public static void move(){
+    public static void moveSpin(Player player, Player other){
 
     }
 
@@ -190,11 +196,11 @@ abstract class GameBoard implements ActionListener {
         JPanel panelInstruct = new JPanel(new GridLayout(1, 1, 0, 0));
         panelInstruct.add(button);
 
-        jTabbedPane.addTab("Player 1", icon, player1, "Determines color for player 1");
+        jTabbedPane.addTab("Player 1", null, player1, "Determines color for player 1");
         jTabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
-        jTabbedPane.addTab("Player 2", icon, player2, "Determines color for player 2");
+        jTabbedPane.addTab("Player 2", null, player2, "Determines color for player 2");
         jTabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
-        jTabbedPane.addTab("Instructions", icon2, panelInstruct, "Instructions");
+        jTabbedPane.addTab("Instructions", null, panelInstruct, "Instructions");
         jTabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
         //update colors if not null
