@@ -171,7 +171,7 @@ static JButton[] map = new JButton[36];
 
     }
     public static void moveSpin(Player player, Player other){
-
+    //
     }
 
     public static void frame2() throws MalformedURLException, MalformedURLException {
