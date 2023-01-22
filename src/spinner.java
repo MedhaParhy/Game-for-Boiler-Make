@@ -12,7 +12,9 @@ public class spinner extends JComponent {
     JButton buttonThree;
     JButton buttonFour;
     int rand = 1;
-    public void run() {
+
+    int randomNum;
+    public int go() {
         JFrame frame = new JFrame();
 
         //setting up buttons
@@ -45,9 +47,10 @@ public class spinner extends JComponent {
 
         //action listeners
         buttonSpin.addActionListener(new spinListener());
+        return rand;
     }
 
-    public int generateNum() {
+    public int generateNum(){
         Random random = new Random();
         while (true) {
             rand = random.nextInt(5);
@@ -135,8 +138,6 @@ public class spinner extends JComponent {
                     }
                 }
             };
-
-            r.start();
 
         }
         private void pause(int time) {

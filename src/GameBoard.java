@@ -178,7 +178,7 @@ abstract class GameBoard implements ActionListener {
             //Player1
             if (gameGoing1) {
                 p = moveSpin(p, q);
-                System.out.println(p.getPosition());
+                //System.out.println(p.getPosition());
                 if(p.getPosition()>=19){
                     gameGoing1= false;
                 }
@@ -187,12 +187,12 @@ abstract class GameBoard implements ActionListener {
             //Player2
             if (gameGoing2) {
                 q = moveSpin(q, p);
-                System.out.println(q.getPosition());
+                //System.out.println(q.getPosition());
                 if(q.getPosition()>=19){
                     gameGoing2= false;
                 }
             }
-            System.out.println("running");
+            //System.out.println("running");
         }
 
 
@@ -219,10 +219,7 @@ abstract class GameBoard implements ActionListener {
     public static int spin() {
         //SPINNER!!!!
         spinner gui = new spinner();
-        gui.run();
-        int finalNumber =  gui.generateNum();
-        System.out.println(finalNumber);
-        return finalNumber;
+        return gui.go();
     }
 
     public static void changeColor(int currPos, int finalPos, Player player, Player other) throws MalformedURLException {
