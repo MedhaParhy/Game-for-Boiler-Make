@@ -1,14 +1,10 @@
 import java.awt.*;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.beans.JavaBean;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static javax.swing.JColorChooser.createDialog;
 import static javax.swing.JColorChooser.showDialog;
 
 abstract class GameBoard implements ActionListener {
@@ -24,7 +20,44 @@ abstract class GameBoard implements ActionListener {
     // Main Method
     public static void main(String[] args) throws MalformedURLException {
         frame2Method();
+    }
 
+    public static void playerFrame(Player p, Player q) throws MalformedURLException {
+        double player1Money = p.getMoney();
+        double player2Money = q.getMoney();
+        int player1Hearts = p.getHearts();
+        int player2Hearts = q.getHearts();
+
+        JTabbedPane tabbedPane = new JTabbedPane();
+        URL url = new URL("https://cdn.singulart.com/artworks/v2/cropped/2769/main/fhd/320803_56071d9f960ce7bed2363a451e60bb37.jpeg");
+        ImageIcon icon = new ImageIcon(url);
+
+        JPanel player1Stats = new JPanel(new GridLayout(1,1));
+        JPanel player2Stats = new JPanel(new GridLayout(1,1));
+
+        JLabel p1M = new JLabel("Money: $" + player1Money);
+        JLabel p2M = new JLabel("Money: $" + player2Money);
+        JLabel p1H = new JLabel("<3: " + player1Hearts);
+        JLabel p2H = new JLabel("<3: " + player2Hearts);
+
+        player1Stats.add(p1M);
+        player1Stats.add(p1H);
+        player2Stats.add(p2M);
+        player2Stats.add(p2H);
+
+        tabbedPane.addTab("Player 1 Stats:", icon, player1Stats);
+        tabbedPane.addTab("Player 2 Stats:", icon, player2Stats);
+
+        JFrame frame = new JFrame();
+        // Function to close the operation of JFrame.
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Function to set size of JFrame.
+        frame.setSize(400, 400);
+        // Function to get the content of JFrame.
+        frame.getContentPane().add(tabbedPane);
+        // Function to set visible status of JFrame.
+        frame.setVisible(true);
+        frame.setVisible(false);
 
     }
 
@@ -192,7 +225,10 @@ abstract class GameBoard implements ActionListener {
                     gameGoing2= false;
                 }
             }
-            System.out.println("running");
+
+            System.out.println("running");//TEST
+            playerFrame(p, q);
+
         }
 
 
@@ -217,7 +253,7 @@ abstract class GameBoard implements ActionListener {
     }
 
     public static int spin() {
-        return 1;
+
     }
 
     public static void changeColor(int currPos, int finalPos, Player player, Player other) throws MalformedURLException {
