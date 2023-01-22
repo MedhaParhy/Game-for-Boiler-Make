@@ -78,7 +78,6 @@ public class StartWindow extends JComponent {
         c.add(label);
         frame.setVisible(true);
 
-
     }
     static ActionListener buttons = new ActionListener(){
         public void actionPerformed(ActionEvent e) {

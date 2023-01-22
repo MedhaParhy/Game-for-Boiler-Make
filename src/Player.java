@@ -84,7 +84,7 @@ public class Player {
 
     public boolean increasePosition(int i) {
         this.position += i;
-        return this.position >= 20;
+        return this.position >= 19;
     }
 
     public void decreasePosition(int i) {
