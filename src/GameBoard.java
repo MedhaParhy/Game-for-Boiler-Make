@@ -161,21 +161,63 @@ abstract class GameBoard implements ActionListener {
         map = new JButton[]{btn31, btn25, btn19, btn13, btn7,
                 btn1, btn2, btn3, btn4, btn5, btn6, btn12,
                 btn18, btn24, btn30, btn36, btn35, btn34, btn33, btn32};
-        boolean gameGoing = true;
+        boolean gameGoing1 = true;
+        boolean gameGoing2 = true;
 
-        while (gameGoing) {
+
+        //instantiate the colors for the first position
+        btn31.setBackground( new Color((p.getColor().getRGB() + q.getColor().getRGB())/2));
+
+        while(gameGoing1 || gameGoing2){
             //Player1
-            moveSpin(p, q);
+            if (gameGoing1) {
+                gameGoing1 = moveSpin(p,q);
+            }
+
             //Player2
-            moveSpin(q, p);
+            if (gameGoing2) {
+                gameGoing2 = moveSpin(q,p);
+            }
         }
 
+        //determine winner and respond appropriately
 
     }
+    public static boolean moveSpin(Player player, Player other){
+        boolean gameGoing = true; //declares if game has been won
+        int currPos = player.getPosition();
+        int finalPos = currPos;
 
-    public static void moveSpin(Player player, Player other) {
-        //
+        //call the spin method, increase position, and determine won
+        int movement = spin();
+        gameGoing = !(player.increasePosition(movement));
+        finalPos = player.getPosition(); //update val
+
+        //update position colors
+        changeColor(currPos, finalPos, player, other);
+
+        return gameGoing;
     }
+
+
+    public static void changeColor(int currPos, int finalPos, Player player, Player other) {
+        int posPlayer1 = player.getPosition();
+        int posPlayer2 = other.getPosition();
+
+        //update current position color
+        if (currPos == other.getPosition()) {
+            map[currPos].setBackground(other.getColor());
+        } else {
+            map[currPos].setBackground(Color.LIGHT_GRAY);
+        }
+
+        //update final position color
+        if (finalPos == other.getPosition()) {
+            map[currPos].setBackground( new Color((player.getColor().getRGB() + other.getColor().getRGB())/2));
+        } else {
+            map[currPos].setBackground(player.getColor());
+        }
+
 
     public static void buttonActions(Player player) {
         if (player.getPosition() == 2 || player.getPosition() == 14|| player.getPosition() == 15|| player.getPosition() == 16) {
@@ -223,6 +265,7 @@ abstract class GameBoard implements ActionListener {
             player.setHearts(player.getHearts() + 1);
             player.setMoney(player.getMoney() - 1000);
         }
+
 
 
 
