@@ -57,8 +57,14 @@ public class spinner extends JComponent {
 
     }
 
-    public void changeColor2() {
-
+    public int generateNum() {
+        Random random = new Random();
+        while (true) {
+            rand = random.nextInt(5);
+            if (rand != 0) break;
+        }
+        System.out.println(rand); //debug
+        return rand; 
     }
 
     private class spinListener implements ActionListener {
@@ -73,48 +79,69 @@ public class spinner extends JComponent {
                     buttonThree.setBackground(Color.white);
                     buttonFour.setBackground(Color.white);
                     //generate random number
-                    Random random = new Random();
-                    while (true) {
-                        rand = random.nextInt(13);
-                        if (rand != 0) break;
-                    }
-                    System.out.println(rand); //debug
+                    rand = generateNum();
+
+                    //SPIN TWICE
+                    buttonOne.setBackground(Color.yellow);
+                    pause(200);
+                    buttonOne.setBackground(Color.white);
+                    pause(200);
+                    buttonTwo.setBackground(Color.yellow);
+                    pause(200);
+                    buttonTwo.setBackground(Color.white);
+                    pause(200);
+                    buttonThree.setBackground(Color.yellow);
+                    pause(200);
+                    buttonThree.setBackground(Color.white);
+                    pause(200);
+                    buttonFour.setBackground(Color.yellow);
+                    pause(200);
+                    buttonFour.setBackground(Color.white);
+                    pause(200);
+                    buttonOne.setBackground(Color.yellow);
+                    pause(200);
+                    buttonOne.setBackground(Color.white);
+                    pause(200);
+                    buttonTwo.setBackground(Color.yellow);
+                    pause(200);
+                    buttonTwo.setBackground(Color.white);
+                    pause(200);
+                    buttonThree.setBackground(Color.yellow);
+                    pause(200);
+                    buttonThree.setBackground(Color.white);
+                    pause(200);
+                    buttonFour.setBackground(Color.yellow);
+                    pause(200);
+                    buttonFour.setBackground(Color.white);
+                    pause(200);
+                    buttonOne.setBackground(Color.yellow);
+                    pause(200);
+                    buttonOne.setBackground(Color.white);
+                    pause(200);
+                    buttonTwo.setBackground(Color.yellow);
+                    pause(200);
+                    buttonTwo.setBackground(Color.white);
+                    pause(200);
+                    buttonThree.setBackground(Color.yellow);
+                    pause(200);
+                    buttonThree.setBackground(Color.white);
+                    pause(200);
+                    buttonFour.setBackground(Color.yellow);
+                    pause(200);
+                    buttonFour.setBackground(Color.white);
+                    pause(200);
 
                     //spinning animation
-                    for (int x = 1; x <= rand; x++) {
-                        if(x == rand){
-                            if ((x == 1) || (x == 5) || (x == 9)) {
-                                buttonOne.setBackground(Color.yellow);
-                                finalNum = 1;
-                            } else if ((x == 2) || (x == 6) || (x == 10)) {
-                                buttonTwo.setBackground(Color.yellow);
-                                finalNum = 2;
-                            } else if ((x == 3) || (x == 7) || (x == 11)) {
-                                buttonThree.setBackground(Color.yellow);
-                                finalNum = 3;
-                            } else if ((x == 4) || (x == 8) || (x == 12)) {
-                                buttonFour.setBackground(Color.yellow);
-                                finalNum = 4;
-                            }
-                        } else if ((x == 1) || (x == 5) || (x == 9)) {
-                            buttonOne.setBackground(Color.yellow);
-                            pause(200);
-                            buttonOne.setBackground(Color.white);
-                        } else if ((x == 2) || (x == 6) || (x == 10)) {
-                            buttonTwo.setBackground(Color.yellow);
-                            pause(200);
-                            buttonTwo.setBackground(Color.white);
-                        } else if ((x == 3) || (x == 7) || (x == 11)) {
-                            buttonThree.setBackground(Color.yellow);
-                            pause(200);
-                            buttonThree.setBackground(Color.white);
-                        } else if ((x == 4) || (x == 8) || (x == 12)) {
-                            buttonFour.setBackground(Color.yellow);
-                            pause(200);
-                            buttonFour.setBackground(Color.white);
-                        } else {
-                            System.out.println("yikes something went wrong :(");
-                        }
+                    if (rand == 1){
+                        buttonOne.setBackground(Color.yellow);
+                    } else if (rand == 2){
+                        buttonTwo.setBackground(Color.yellow);
+                    } else if (rand == 3){
+                        buttonThree.setBackground(Color.yellow);
+                    } else if (rand == 4){
+                        buttonFour.setBackground(Color.yellow);
+                    } else {
+                        System.out.println("yikez something went wrong");
                     }
                 }
             };
@@ -126,6 +153,7 @@ public class spinner extends JComponent {
             try {
                 Thread.sleep(time);
             } catch (InterruptedException ie) {
+                System.out.println("hi");
             }
         }
     }
